@@ -33,10 +33,10 @@ fn main() -> ! {
 
 
     #[cfg(feature = "v1")]
-    let mut i2c = { twi::Twi::new(board.TWI0, board.i2c.into(), FREQUENCY_A::K100) };
+    let mut i2c = twi::Twi::new(board.TWI0, board.i2c.into(), FREQUENCY_A::K100);
 
     #[cfg(feature = "v2")]
-    let mut i2c = { twim::Twim::new(board.TWIM0, board.i2c_internal.into(), FREQUENCY_A::K100) };
+    let mut i2c = twim::Twim::new(board.TWIM0, board.i2c_internal.into(), FREQUENCY_A::K100);
 
     let mut acc = [0];
     let mut mag = [0];
